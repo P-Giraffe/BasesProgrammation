@@ -117,10 +117,11 @@ public class Application {
                 System.out.print("| ");
             }
             System.out.println(" Il reste " + nbAllumettes + " allumette(s)");
+            int saisieMax = nbAllumettes < 3 ? nbAllumettes : 3;
             do
             {
-                saisieUtilisateur = ConsoleReader.readInt(joueurEnCours + ": prenez entre 1 et 3 allumette(s)");
-            } while (saisieUtilisateur < 1 || saisieUtilisateur > 3);
+                saisieUtilisateur = ConsoleReader.readInt(joueurEnCours + ": prenez entre 1 et "+saisieMax+" allumette(s)");
+            } while (saisieUtilisateur < 1 || saisieUtilisateur > saisieMax);
 
 
             nbAllumettes = nbAllumettes - saisieUtilisateur;
