@@ -1,18 +1,14 @@
 clearscreen
 
-TO carre :taille :color
-	setpencolor :color 
+TO carre :taille
 	repeat 4 [
   		fd :taille
 		rt 90
 	]
 END
 
-carre 100 4
-carre 200 7
-
 TO maison :hauteur
-	carre :hauteur 7
+	carre :hauteur
 	fd :hauteur
 	rt (90-60)
 	fd :hauteur
@@ -32,20 +28,3 @@ fd 300
 rt 90
 pendown
 maison 200
-
-
-fd 100
-repeat 3 [
-	rt 90
-	fd 100
-]
-
-clearscreen
-repeat 100 [
-  carre 200
-  rt (360 / 100)
-]
-
-
-
-
