@@ -5,7 +5,6 @@ import fr.purplegiraffe.NE_PAS_TOUCHER.ConsoleReader;
 public class Application {
     public void fonctionPrincipale() {
         //Exemple d'utilisation
-
     }
 
     void exercice1()
@@ -72,35 +71,33 @@ public class Application {
 
     void exercice4()
     {
-        System.out.println("Entrez votre valeur : ");
-        int nb = ConsoleReader.readInt("");
+        int nb = ConsoleReader.readInt("Somme à cibler");
+        sommeProche(nb);
+    }
 
-        int ecart = nb;
-        int ecartPrecedent = 0;
+    void sommeProche(int cible) {
+
         int nbAdditionne = 1;
         int somme = 0;
-        boolean meilleurEcartTrouve = false;
 
-        do
-        {
-            ecartPrecedent = ecart;
+        while (somme < cible) {
             somme = somme + nbAdditionne;
-            ecart = Math.abs(nb - somme);
-            meilleurEcartTrouve = ecart < ecartPrecedent;
-            if (meilleurEcartTrouve == false)
+            if (nbAdditionne > 1)
             {
+                System.out.print(" + ");
+            }
+            System.out.print(nbAdditionne);
+            nbAdditionne++;
+        }
+        if (somme != cible) {
+            nbAdditionne--;
+            int ecartActuel = Math.abs(somme - cible);
+            int precedentEcart = cible - (somme - nbAdditionne);
+
+            if (ecartActuel >= precedentEcart) {
                 somme = somme - nbAdditionne;
             }
-            else
-            {
-                if (nbAdditionne > 1)
-                {
-                    System.out.print(" + ");
-                }
-                System.out.print(nbAdditionne);
-            }
-            nbAdditionne++;
-        } while (meilleurEcartTrouve == true);
+        }
         System.out.println(" = " + somme);
     }
 
