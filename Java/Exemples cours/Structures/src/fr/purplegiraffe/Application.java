@@ -2,46 +2,68 @@ package fr.purplegiraffe;
 
 import fr.purplegiraffe.NE_PAS_TOUCHER.ConsoleReader;
 
+import java.util.ArrayList;
+
 public class Application {
     public void fonctionPrincipale() {
-        Joueur j = new Joueur("Jack", "Johnson");
-        System.out.println(j.pseudo);
+        Joueur j = new Joueur("Thibert", 1);
+        Bot b = new Bot(20);
+        j.attaquer(b);
+        b.attaquer(j);
 
-        Joueur j1 = new Joueur("Sheldon");
-        System.out.println(j1.pseudo);
+        System.out.println(j);
+        System.out.println(b);
 
-
-        Joueur j2 = new Joueur("Leonard", 100);
-        System.out.println(j2.pseudo);
-
-
-
+//        int[] notes = new int[10];
+//        for (int indexNote = 0; indexNote < notes.length; indexNote++) {
+//            notes[indexNote] = -1;
+//        }
 //
+//        notes[0] = 10;
+//        notes[1] = 18;
 //
+//        for (int note : notes) {
+//            System.out.println(note);
+//        }
+
+
+//        ArrayList<String> listeNoms = new ArrayList<>();
+//        listeNoms.add("Tokyo");
+//        listeNoms.add("Nairobi");
+//        listeNoms.add(1,"Moscou");
+//        listeNoms.set(1,"Berlin");
+//        System.out.println(listeNoms.get(0));
+//        listeNoms.remove(0);
+//        System.out.println(listeNoms.get(0));
+
+
+
+//        Joueur j1 = new Joueur("Sheldon");
 //
+//        Joueur j2 = new Joueur("Leonard", 100);
 //
-//        Joueur j1 = creerJoueur();
-//        Joueur j2 = creerJoueur();
+//        j1.afficheToi();
+//        j1.partieGagnee();
+//        j1.afficheToi();
+//        j1.partiePerdue();
+//        j1.afficheToi();
+//        j1.partiePerdue();
 //
-//        afficherJoueur(j1);
-//        afficherJoueur(j2);
+//        j1.afficheToi();
+//        j2.afficheToi();
+
+
     }
 
-    void truc(Joueur j) {
-        j.score = 100;
-    }
+//    Joueur creerJoueur() {
+//        String pseudo = ConsoleReader.readString("Entrez votre pseudo");
+//        Joueur nouveauJoueur = new Joueur(pseudo);
+//        do {
+//            nouveauJoueur.score = ConsoleReader.readInt("Entrez votre score");
+//        } while (nouveauJoueur.score < 0);
+//
+//        return nouveauJoueur;
+//    }
 
-    Joueur creerJoueur() {
-        String pseudo = ConsoleReader.readString("Entrez votre pseudo");
-        Joueur nouveauJoueur = new Joueur(pseudo);
-        do {
-            nouveauJoueur.score = ConsoleReader.readInt("Entrez votre score");
-        } while (nouveauJoueur.score < 0);
 
-        return nouveauJoueur;
-    }
-
-    void afficherJoueur(Joueur joueurAAfficher) {
-        System.out.println("Bonjour " + joueurAAfficher.pseudo + " votre score est de " + joueurAAfficher.score);
-    }
 }
