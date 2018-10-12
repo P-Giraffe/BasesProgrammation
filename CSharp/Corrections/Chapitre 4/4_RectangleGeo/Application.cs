@@ -40,16 +40,12 @@ public class Application
 
 		void AjouterRectangle ()
 		{
-			string nom;
 			int lar=0;
 			int hau=0;
 			RectangleGeo nvRect = null;
 			if (questionOuiNon ("Voulez vous garder les valeurs par defaut?") == true) {
 				nvRect = new RectangleGeo ();
-				nom = "Nouveau Rect";
 			} else {
-				Console.WriteLine("Nom du nouveau Rectangle");
-				nom = Utilisateur.saisirTexte();
 				Console.WriteLine("Quel est la largeur du nouveau rectangle");
 				lar = Utilisateur.saisirEntier();
 				Console.WriteLine("Quel est la hauteur du nouveau rectangle");
