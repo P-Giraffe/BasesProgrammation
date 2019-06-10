@@ -1,8 +1,8 @@
 using System;
 public class RectangleGeo
 {
-    private int _largeur;
-    private int _hauteur;
+    private int _largeur = 0;
+    private int _hauteur = 0;
 
     public RectangleGeo()
     {
@@ -16,7 +16,7 @@ public class RectangleGeo
         setHauteur(hauteurDepart);
     }
 
-    public void dessiner()
+    public void dessiner(char character)
     {
         Console.WriteLine("rectangle : " + _largeur + "x" + _hauteur);
         for (int ligne = 0; ligne < _hauteur; ligne++)
@@ -26,7 +26,7 @@ public class RectangleGeo
                 if (curseurLargeur == 0 || curseurLargeur == _largeur - 1
                     || ligne == 0 || ligne == _hauteur - 1)
                 {
-                    Console.Write(" *");
+                    Console.Write(" " + character);
                 }
                 else
                 {
@@ -35,6 +35,12 @@ public class RectangleGeo
             }
             Console.WriteLine();
         }
+    }
+
+
+    public void dessiner()
+    {
+        dessiner('*');
     }
 
     public int getLargeur()

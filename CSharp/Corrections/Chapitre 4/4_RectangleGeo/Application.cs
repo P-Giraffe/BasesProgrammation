@@ -5,12 +5,22 @@ public class Application
 {
 	private List<RectangleGeo> listeRectangles = new List<RectangleGeo> ();
 
+	
+	public void fonctionPrincipale()
+        {
+			listeRectangles.Add(new RectangleGeo(5, 5));
+			listeRectangles.Add(new RectangleGeo(10, 5));
+			listeRectangles.Add(new RectangleGeo(5, 5));
+			listeRectangles.Add(new RectangleGeo(20, 30));
+			listeRectangles.Add(new RectangleGeo(5,5));
+			afficherMenu ();
+        }
 	void afficherListeRectangles ()
 		{
 			Console.WriteLine ("Choisissez un rectangle à afficher :");
 			RectangleGeo rChoisi = choisirRectangle();
 			if (rChoisi != null) {
-				rChoisi.dessiner ();
+				rChoisi.dessiner ('%');
 			} else {
 				Console.WriteLine ("Aucun rectangle à afficher");
 			}
@@ -40,12 +50,12 @@ public class Application
 
 		void AjouterRectangle ()
 		{
-			int lar=0;
-			int hau=0;
-			RectangleGeo nvRect = null;
+			RectangleGeo nvRect;
 			if (questionOuiNon ("Voulez vous garder les valeurs par defaut?") == true) {
 				nvRect = new RectangleGeo ();
 			} else {
+				int lar=0;
+				int hau=0;
 				Console.WriteLine("Quel est la largeur du nouveau rectangle");
 				lar = Utilisateur.saisirEntier();
 				Console.WriteLine("Quel est la hauteur du nouveau rectangle");
@@ -66,7 +76,11 @@ public class Application
 				result = Utilisateur.saisirTexte();
 			} while (result != "o" && result != "n");
 
-			return result == "o";
+			if (result == "o") {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		void supprimer ()
@@ -85,13 +99,13 @@ public class Application
 			do {
 				Console.WriteLine ("0 Quitter               1 Afficher");
 				Console.WriteLine ("");
-				Console.WriteLine ("2 Ajouter               3 Supprimer                        ");
+				Console.WriteLine ("2 Ajouter               3 Supprimer");
 				Console.WriteLine ("");
 				Console.Write ("Tapez un numero : ");
 
 				do {
 					choixUtilisateur = Utilisateur.saisirEntier();
-				} while (choixUtilisateur < 0 || choixUtilisateur > 6);
+				} while (choixUtilisateur < 0 || choixUtilisateur > 3);
 
 				switch (choixUtilisateur) {
 				case 0:
@@ -110,20 +124,12 @@ public class Application
 					Console.WriteLine("Valeur inconnue");
 					break;
 				}
-
+				
 			} while (choixUtilisateur != 0);
 		}
 
 
-        public void fonctionPrincipale()
-        {
-			listeRectangles.Add(new RectangleGeo(5, 5));
-			listeRectangles.Add(new RectangleGeo(10, 5));
-			listeRectangles.Add(new RectangleGeo(5, 5));
-			listeRectangles.Add(new RectangleGeo(20, 30));
-			listeRectangles.Add(new RectangleGeo(5,5));
-			afficherMenu ();
-        }
+        
 }
 
 

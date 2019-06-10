@@ -6,8 +6,10 @@ public class Application
     {
         //DEBUT de votre programme
 
-		exercice3();
-        Utilisateur.saisirTexte();
+		int a = 10;
+        int b = a++ + ++a;
+        int c = a + b;
+        Console.WriteLine(c);
         //FIN de votre programme
     }
 
@@ -59,6 +61,9 @@ public class Application
 
     void exercice3()
     {
+        int dimension = Utilisateur.saisirEntier();
+        multiplication(dimension);
+
         multiplication(4);
     }
 
@@ -77,10 +82,38 @@ public class Application
 
     void exercice4()
     {
-        Console.WriteLine("Entrez votre valeur : ");
-		int nb = Utilisateur.saisirEntier();
+        sommeProche(10);
+        Console.WriteLine("devrait être 10");
+        
+        sommeProche(11);
+        Console.WriteLine("devrait être 10");
 
-        int ecart = nb;
+        sommeProche(14);
+        Console.WriteLine("devrait être 15");
+
+        sommeProche(18);
+        Console.WriteLine("devrait être 15");
+    }
+
+
+
+    void sommeProche(int sommeVoulue) {
+        int somme = 0;
+        int compteur = 0;
+        while (somme < sommeVoulue) {
+            compteur++;
+            somme = somme + compteur;
+        }
+        int ecartCourant = somme - sommeVoulue;
+        int ecartPrecedent = sommeVoulue - (somme - compteur);
+        if (ecartPrecedent <= ecartCourant) {
+            somme = somme - compteur;
+        }
+        Console.WriteLine(somme);
+    }
+
+    void sommeProche_v2(int sommeVoulue) {
+        int ecart = sommeVoulue;
         int ecartPrecedent = 0;
         int nbAdditionne = 1;
         int somme = 0;
@@ -90,23 +123,15 @@ public class Application
         {
             ecartPrecedent = ecart;
             somme = somme + nbAdditionne;
-            ecart = Math.Abs(nb - somme);
+            ecart = Math.Abs(sommeVoulue - somme);
             meilleurEcartTrouve = ecart < ecartPrecedent;
             if (meilleurEcartTrouve == false)
             {
                 somme = somme - nbAdditionne;
             }
-            else
-            {
-                if (nbAdditionne > 1)
-                {
-                    Console.Write(" + ");
-                }
-                Console.Write(nbAdditionne);
-            }
             nbAdditionne++;
         } while (meilleurEcartTrouve == true);
-        Console.WriteLine(" = " + somme);
+        Console.WriteLine(somme);
     }
 
     /* EXEMPLES DE PROCEDURES ET FONCTIONS :

@@ -28,7 +28,7 @@ public class Application
         //Exercice 2 : Factorielle
         Console.WriteLine("Quelle factorielle voulez-vous calculer ?");
         int n = Utilisateur.saisirEntier();
-        int resultat = 1;
+        long resultat = 1;
 
         for (int i = 1; i <= n; i++)
         {
@@ -45,9 +45,9 @@ public class Application
         int nombreEssais = 0;
         do
         {
-            nombreEssais++;
             Console.WriteLine("Combien vaut le nombre mystere ?");
             nombreUtilisateur = Utilisateur.saisirEntier();
+            nombreEssais++;
             if (nombreUtilisateur < nombreAleatoire)
             {
                 Console.WriteLine("C'est plus");
@@ -63,7 +63,6 @@ public class Application
 
 		//Exercice 4 : Jeu de Nim
         int nbAllumettes = 20;
-        int saisieUtilisateur;
         string joueurEnCours;
         string prochainJoueur = "Joueur 1";
 
@@ -75,6 +74,8 @@ public class Application
                 Console.Write("| ");
             }
             Console.WriteLine(" Il reste " + nbAllumettes + " allumette(s)");
+
+            int saisieUtilisateur;
             do
             {
                 Console.WriteLine(joueurEnCours + ": prenez entre 1 et 3 allumette(s)");
@@ -92,7 +93,7 @@ public class Application
             {
                 prochainJoueur = "Joueur 1";
             }
-        } while (nbAllumettes > 0);
+        } while (nbAllumettes != 0);
 
         Console.WriteLine("Le " + prochainJoueur + " a gagné");
         //FIN de votre programme

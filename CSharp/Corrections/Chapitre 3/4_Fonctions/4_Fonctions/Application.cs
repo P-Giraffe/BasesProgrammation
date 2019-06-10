@@ -5,8 +5,7 @@ public class Application
     public void fonctionPrincipale()
     {
         //DEBUT de votre programme
-		pyramide();
-		Utilisateur.saisirTexte();
+		exercice2();
         //FIN de votre programme
     }
 
@@ -18,11 +17,11 @@ public class Application
 
         if (a % 2 == 0)
         {
-            aEstPaire = true;
+            return true;
         }
         else
         {
-            aEstPaire = false;
+            return false;
         }
 
         return aEstPaire;

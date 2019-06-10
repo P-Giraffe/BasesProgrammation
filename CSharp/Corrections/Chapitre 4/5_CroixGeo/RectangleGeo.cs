@@ -23,9 +23,10 @@ public class RectangleGeo
         Console.WriteLine("rectangle : " + _largeur + "x" + _hauteur);
         for (int ligne = 0; ligne < _hauteur + _y; ligne++)
         {
+            if (ligne >= _y) {
             for (int curseurLargeur = 0; curseurLargeur < _largeur + _x; curseurLargeur++)
             {
-                if (curseurLargeur < _x || ligne < _y)
+                if (curseurLargeur < _x)
                 {
                     Console.Write(" .");
                 }
@@ -33,6 +34,7 @@ public class RectangleGeo
                 {
                     Console.Write(" *");
                 }
+            }
             }
             Console.WriteLine();
         }

@@ -35,6 +35,26 @@ public class Application
 		return nvDate;
 	}
 
+	bool estPlusRecenteQue(Date date1, Date date2)
+    {
+        bool estPlusRecente = true;
+
+        if (date1.annee < date2.annee)
+        {
+            estPlusRecente = false;
+        }
+        else if (date1.annee == date2.annee && date1.mois < date2.mois)
+        {
+            estPlusRecente = false;
+        }
+        else if (date1.annee == date2.annee && date1.mois == date2.mois && date1.jour <= date2.jour)
+        {
+            estPlusRecente = false;
+        }
+
+        return estPlusRecente;
+    }
+
 	//DECLAREZ VOS FONCTIONS EN DESSOUS DE CETTE LIGNE
 
 	/* EXEMPLES DE PROCEDURES ET FONCTIONS :

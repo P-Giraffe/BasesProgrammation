@@ -8,6 +8,12 @@ public class Application
 	{
 		//DEBUT de votre programme
 		
+int a = 10;
+if (a < 100) {
+	int b = 20;
+	a = a - b;
+}
+Console.WriteLine(a);
 
 		Utilisateur.saisirTexte();
 		//FIN de votre programme

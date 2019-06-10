@@ -121,13 +121,14 @@ public class Application
 
         public void fonctionPrincipale()
         {
+			Console.WriteLine("hello");
 			listeRectangles.Add(new RectangleGeo(5, 5));
 			listeRectangles.Add(new RectangleGeo(10, 5));
 			listeRectangles.Add(new RectangleGeo(5, 5));
 			listeRectangles.Add(new RectangleGeo(20, 30));
 			listeRectangles.Add(new RectangleGeo(5,5));
 
-			CroixGeo c = new CroixGeo(5,5);
+			RectangleGeo c = new RectangleGeo(5,5);
 			c.deplacerHorizontalement(3);
 			c.deplacerVerticalement(2);
 			c.dessiner();
